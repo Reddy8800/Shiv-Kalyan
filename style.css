@@ -1,0 +1,180 @@
+/* Disable scrolling forever */
+html, body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #fff;
+    min-height: 100vh;
+    background: #000;
+    position: relative;
+}
+
+/* Moving dark overlay BG */
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: url("bg.jpg") center/cover no-repeat;
+    filter: brightness(0.45);
+    animation: moveBg 35s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBg {
+    0% { transform: scale(1) translate(0,0); }
+    50% { transform: scale(1.05) translate(0, -10px); }
+    100% { transform: scale(1) translate(0,0); }
+}
+
+.container {
+    padding: 40px 20px;
+    max-width: 480px;
+    margin: auto;
+}
+
+/* Title */
+.title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ffd400;
+    text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
+.tagline {
+    font-size: 20px;
+    color: #eee;
+    margin-top: -8px;
+}
+
+/* Floating icons */
+.floating-icons {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 20px 0 10px;
+}
+
+.floating-icons img {
+    width: 45px;
+    animation: floatY 3s infinite ease-in-out;
+}
+
+@keyframes floatY {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* Big Counter */
+.big-counter {
+    color: #ffd400;
+    font-size: clamp(55px, 13vw, 150px);
+    font-weight: 900;
+    margin-top: 10px;
+    text-shadow: 0 0 20px rgba(255,215,0,0.9);
+}
+
+.big-counter.pulse {
+    animation: pulse 0.4s ease-out;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.08); }
+}
+
+/* Stats */
+.stats p {
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+/* Glowing CTA button */
+.cta-btn {
+    display: block;
+    width: 90%;
+    margin: 20px auto 0;
+    padding: 18px 25px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #000;
+    background: #ffd400;
+    border-radius: 14px;
+    text-decoration: none;
+
+    /* Glow */
+    box-shadow: 0 0 12px #ffd400, 0 0 22px #ffaa00;
+    animation: neonPulse 2s infinite alternate;
+}
+
+@keyframes neonPulse {
+    from { box-shadow: 0 0 14px #ffd400; }
+    to   { box-shadow: 0 0 26px #ffaa00; }
+}
+
+.timer-text {
+    font-size: 20px;
+    margin-top: 16px;
+}
+
+.timer-text span {
+    color: #ffd400;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* Footer */
+.footer-text {
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: 700;
+}
+/* Bounce Pop Title */
+.title {
+  animation: popIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* CTA Shine Sweep */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shine 2.2s infinite;
+}
+
+@keyframes shine {
+  0% { left: -120%; }
+  100% { left: 120%; }
+}
